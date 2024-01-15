@@ -8,14 +8,14 @@ WORKDIR ${WORK_DIR}
 
 # USER node
 
-# COPY package.json ${WORK_DIR}
-# COPY package-lock.json ${WORK_DIR}
+COPY package.json ${WORK_DIR}
+COPY package-lock.json ${WORK_DIR}
 
 # RUN npm install @angular/cli
-# RUN npm install
+RUN npm install
 
 # COPY . ${WORK_DIR}
 
 EXPOSE 4200
 
-# CMD [ "ng", "serve", "--host", "0.0.0.0" ]
+# CMD ["npx" , "ng", "serve", "--host", "0.0.0.0" ]
