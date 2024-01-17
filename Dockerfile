@@ -1,5 +1,7 @@
 FROM node:21-alpine
 
+RUN apk update && apk add --update git
+
 ARG WORK_DIR=/frontend
 ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
 
@@ -9,9 +11,9 @@ WORKDIR ${WORK_DIR}
 # USER node
 
 COPY package.json ${WORK_DIR}
-COPY package-lock.json ${WORK_DIR}
+# COPY package-lock.json ${WORK_DIR}
 
-RUN npm install @angular/cli
+# RUN npm install @angular/cli
 RUN npm install
 
 COPY . ${WORK_DIR}
