@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./src:/frontend/src
+      - .:/frontend
       - type: bind
         source: ./package.json
         target: /frontend/package.json
