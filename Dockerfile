@@ -1,6 +1,6 @@
-FROM node:21-alpine
+FROM node:20.11.0-bookworm
 
-RUN apk update && apk add --update git
+RUN apt-get -y upgrade && apt-get install git
 
 ARG WORK_DIR=/frontend
 ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
