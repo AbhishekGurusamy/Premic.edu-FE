@@ -11,7 +11,7 @@ WORKDIR ${WORK_DIR}
 # USER node
 
 COPY package.json ${WORK_DIR}
-# COPY package-lock.json ${WORK_DIR}
+COPY package-lock.json ${WORK_DIR}
 
 # RUN npm install @angular/cli
 RUN npm install
