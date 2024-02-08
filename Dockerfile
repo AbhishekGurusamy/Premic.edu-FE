@@ -1,6 +1,6 @@
-FROM node:18.10.0-alpine3.15
+FROM node:18.10.0-bullseye-slim
 
-RUN apk update && apk upgrade && apk add git
+RUN apt-get update && apt-get install -y git
 
 ARG WORK_DIR=/frontend
 ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
