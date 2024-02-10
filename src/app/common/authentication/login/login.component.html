@@ -1,1 +1,31 @@
-<p>login change!</p>
+<div class="container-fluid d-flex justify-content-center align-items-center  min-vh-100">
+    <div class="row border rounded-3 bg-white shadow box-area">
+
+        <div class="col-md-6 my-2 mx-2 rounded-3 d-flex justify-content-center align-items-center flex-column ">
+            <div class="featured-image my-3">
+                <img src="./assets/images/login_bg.svg" class="img-fluid rounded-4" alt="no img" style="width: 450px;background-size: cover;">
+            </div>
+            <!-- <p class="text-white fs-5 para">Welcome to Vendever</p> -->
+        </div>
+
+        <div class="col-md-5  rounded-3 d-flex justify-content-center align-items-center flex-column ">
+            <p class="fs-4 para"><b>Welcome to Premic!!!</b></p>
+            <form>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                    <input type="text" class="form-control" placeholder="Email-ID" aria-label="Email-ID" aria-describedby="basic-addon1" formControlName="email" required>
+                </div>
+    
+                <div class="input-group mb-2">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                    <input type="password" class="form-control" placeholder="password" aria-label="Password" aria-describedby="basic-addon1" formControlName="password" required>
+                </div>
+
+                <a routerLink="#" class="d-flex justify-content-end">forgot password</a>
+                
+                <button type="submit" class="btn bg-warning col-12 mt-2">Register</button>
+            </form>
+        </div>
+
+    </div>
+</div>
