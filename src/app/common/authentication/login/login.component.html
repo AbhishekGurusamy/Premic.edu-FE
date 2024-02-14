@@ -10,7 +10,7 @@
 
         <div class="col-md-5  rounded-3 d-flex justify-content-center align-items-center flex-column ">
             <p class="fs-4 para"><b>Welcome to Premic!!!</b></p>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
                     <input type="text" class="form-control" placeholder="Email-ID" aria-label="Email-ID" aria-describedby="basic-addon1" formControlName="email" required>
@@ -21,9 +21,9 @@
                     <input type="password" class="form-control" placeholder="password" aria-label="Password" aria-describedby="basic-addon1" formControlName="password" required>
                 </div>
 
-                <a routerLink="#" class="d-flex justify-content-end">forgot password</a>
+                <a routerLink="#" class="d-none justify-content-end">forgot password</a>
                 
-                <button type="submit" class="btn bg-warning col-12 mt-2">Register</button>
+                <button type="submit" class="btn bg-warning col-12 mt-2">Sign in</button>
             </form>
         </div>
 
