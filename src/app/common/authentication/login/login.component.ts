@@ -1,6 +1,9 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import {DeviceUUID} from "device-uuid"
 import { EmailValidator, FormControl,FormGroup, Validators } from '@angular/forms';
+import {CommomServiceService} from 'src/app/service/commom-service.service';
+import {ToastService} from 'src/app/service/toast.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   })
 
-  constructor(){
+  constructor(private auth:CommomServiceService, private toast:ToastService, private route:Router){
   }
 
   ngOnInit(): void {
@@ -24,15 +27,29 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.loginForm.value)
-
     const payload = {
-      "email":this.loginForm.value['email'],
+      "username":this.loginForm.value['email'],
       "password":this.loginForm.value['password'],
-      "deviceID":this.uuid
+      "device_id":this.uuid
     }
 
-    console.log("payload",payload)
+    this.auth.loginApi(payload).subscribe((response:any)=>{
+      console.log(response.details.token);
+      
+      if(response.details.token){
+        this.toast.success("Login Successful")
+        localStorage.setItem("token",response.details.token)
+        localStorage.setItem("username",response.details.username)
+        this.route.navigate(["dashboard"])
+
+      }
+    
+    },(error:any)=>{
+      console.log(error.error.detail);
+      this.toast.error(error.error.detail)
+      
+    })
+    
   }
 
 
